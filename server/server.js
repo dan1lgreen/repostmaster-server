@@ -46,12 +46,6 @@ const addContactToSendGrid = async (email, name) => {
 app.post("/send-email", async (req, res) => {
   const { name, email } = req.body;
   try {
-    await sendEmail(
-      email,
-      "", // Your email address
-      "Thank you for joining the waitlist!", // Subject
-      `Hi ${name},<br><br>We're thrilled to have you on board! 🌟 Your spot on our waitlist is confirmed.<br/><br>We believe that good things come to those who wait, and we promise the wait will be worth it.</br><br>Stay tuned, and don't hesitate to reach out if you have any questions or just want to say hi.</br><br>Kind regards,<br/><br>Team RepostMaster</br>` // Html
-    );
     await addContactToSendGrid(email, name);
     res.sendStatus(200);
   } catch (error) {
