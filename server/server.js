@@ -13,11 +13,6 @@ app.use(cors());
 
 sendgrid.setApiKey(process.env.SENDGRID_API_KEY);
 
-const sendEmail = (to, from, subject, html) => {
-  const msg = { to, from, subject, html };
-  return sendgrid.send(msg);
-};
-
 const addContactToSendGrid = async (email, name) => {
   try {
     const response = await axios({
